@@ -14,11 +14,13 @@ const Navbar = () => {
     <div className='navbar'>
       <div className='links'>
         <Link to='/'> Home</Link>
-        <Link to='/login'> Login</Link>
+        {!user?<Link to='/login'> Login</Link>:
+          <Link to='/createpost'>create post</Link>
+        }
         </div>
         <div className='user'>
           { user && (<><p>{user?.displayName}</p>
-          <img src={user?.photoURL || ""} width='50px' height='50px' />
+          <img src={user?.photoURL || ""} alt="user-profile"width='20px' height='20px' />
           <button className='logout' onClick={signUserOut}>Log Out</button></>)}
           
         </div>
